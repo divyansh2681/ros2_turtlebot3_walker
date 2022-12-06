@@ -25,7 +25,7 @@ from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
-TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
+TURTLEBOT3_MODEL = "waffle_pi"
 
 
 def generate_launch_description():
@@ -62,7 +62,7 @@ def generate_launch_description():
     if record_bag=='record:=True':
         actions.append(
             ExecuteProcess(
-                cmd=["ros2", "bag", "record", "-o", "turtlebot_walker", "-a"]
+                cmd=["ros2", "bag", "record", "-o", "rosbag_output", "-a"]
             )
         )
     return LaunchDescription(actions)
